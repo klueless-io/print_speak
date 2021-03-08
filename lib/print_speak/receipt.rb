@@ -12,6 +12,8 @@ module PrintSpeak
   # a shelf price of p contains (np/100 rounded up to the nearest 0.05)
   # amount of sales tax.
   class Receipt
+    # include PrintSpeak::Rounding
+
     attr_reader :items
 
     def initialize(items)

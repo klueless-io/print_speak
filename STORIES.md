@@ -15,23 +15,25 @@ As a Small Business Merchant, I want to calculate applicable tax and duties, so 
 - Run tax and total calculations for the receipt
 - Print out the receipt
 
-### Tasks next on list
-
-Setup GitHub Action (test and lint)
-
-- Setup Rspec action
-- Setup RuboCop action
-
 ## Stories and tasks
 
 ### Tasks - completed
+
+Create a rounding module
+
+- Round to nearest 5 cents
+- Round to nearest (other amount), eg. 10 cent, 50 cent for completeness
+
+Domain model: Receipt
+
+- Add receipt model
+- Build calculations
 
 Domain model: Item
 
 - Add item model
 - Support strong parameters
 - Build calculations
--
 
 Setup project management, requirement and SCRUM documents
 
@@ -39,6 +41,11 @@ Setup project management, requirement and SCRUM documents
 - Setup user stories and tasks
 - Setup a project backlog
 - Setup an examples/usage document
+
+Setup GitHub Action (test and lint)
+
+- Setup Rspec action
+- Setup RuboCop action
 
 Setup new Ruby GEM
 
