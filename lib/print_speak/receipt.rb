@@ -22,6 +22,14 @@ module PrintSpeak
       @total_price ||= items.sum(&:price)
     end
 
+    def total_taxes
+      @total_taxes ||= items.sum(&:tax)
+    end
+
+    def total_price_with_tax
+      @total_price_with_tax ||= items.sum(&:price_with_tax)
+    end
+
     # 1, book, 12.49
     # 1, music CD, 16.49
     # 1, chocolate bar, 0.85
