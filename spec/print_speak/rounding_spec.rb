@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe PrintSpeak::Rounding do
-  let(:instance) { Class.new.extend(described_class) }
+  let(:instance) { Class.new.include(described_class).new }
 
   describe '#round_to' do
     context 'to: 0.05 (nearest 5 cents)' do
