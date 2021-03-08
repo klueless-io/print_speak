@@ -2,40 +2,48 @@
 
 > Print Speak basic sales tax is applicable at a rate of 10% on all goods, except books, food, and medical products that are exempt
 
-## Installation
+## Getting Started
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'print_speak'
-```
-
-And then execute:
+Run these commands from your shell
 
 ```bash
+git@github.com:klueless-io/print_speak.git
+
+cd print_speak
+
 bundle install
-```
 
-Or install it yourself as:
+# run tests and linting from guard watcher
+guard
 
-```bash
-gem install print_speak
+# run test directly from rspec
+rspec
+
+# run linting directly from rubocop
+rubocop
 ```
 
 ## Stories
 
 ### Main Story
 
-
+As a Small Business Merchant, I want to calculate applicable tax and duties, so I am compliant with government regulations
 
 See all [stories](./STORIES.md)
-
 
 ## Usage
 
 See all [usage examples](./USAGE.md)
 
+### Basic Example
 
+#### Basic example
+
+Description for a basic example to be featured in the main README.MD file
+
+```ruby
+class SomeRuby; end
+```
 
 ## Development
 
@@ -45,7 +53,7 @@ Checkout the repo
 git clone klueless-io/print_speak
 ```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. 
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests.
 
 You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
