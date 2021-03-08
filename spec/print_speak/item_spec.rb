@@ -60,6 +60,24 @@ RSpec.describe PrintSpeak::Item do
                                 imported: true)
         end
       end
+
+      context 'with parameter injection attack' do
+        context 'update read-only fields' do
+          let(:opts) { product.merge({ sales_tax: 20.0, import_duty: 20.0 }) }
+          it do
+            is_expected
+              .to  have_attributes(quantity: 1,
+                                   product: 'general-product',
+                                   price: 100,
+                                   sales_tax: 10.0,
+                                   import_duty: 0)
+          end
+        end
+        context 'update some internal data' do
+          let(:opts) { product.merge({ xxx: 'bad actor'}) }
+          it { expect(instance.instance_variable_get("@xxx")).not_to eq('bad actor') }
+        end
+      end
     end
 
     describe '.sales_tax' do
