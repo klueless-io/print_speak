@@ -40,6 +40,19 @@ RSpec.describe PrintSpeak::Item do
                                price: 100,
                                category: be_nil)
       end
+
+      context 'and optional parameters' do
+        let(:opts) { product.merge({ category: :xxx, imported: true }) }
+        it do
+          is_expected
+            .to  have_attributes(quantity: 1,
+                                 product: 'general-product',
+                                 price: 100,
+                                 category: :xxx,
+                                 imported: true)
+        end
+      end
     end
+
   end
 end
