@@ -35,24 +35,44 @@ RSpec.describe PrintSpeak::Item do
       let(:opts) { product }
       it do
         is_expected
-          .to  have_attributes(quantity: 1,
-                               product: 'general-product',
-                               price: 100,
-                               category: be_nil)
+          .to have_attributes(quantity: 1,
+                              product: 'general-product',
+                              price: 100,
+                              category: be_nil)
       end
 
       context 'and optional parameters' do
         let(:opts) { product.merge({ category: :xxx, imported: true }) }
         it do
           is_expected
-            .to  have_attributes(quantity: 1,
-                                 product: 'general-product',
-                                 price: 100,
-                                 category: :xxx,
-                                 imported: true)
+            .to have_attributes(quantity: 1,
+                                product: 'general-product',
+                                price: 100,
+                                category: :xxx,
+                                imported: true)
         end
       end
     end
 
+    describe '.sales_tax' do
+      subject { instance.sales_tax }
+
+      context 'for general product' do
+        let(:opts) { product }
+        it { is_expected.to eq(10.0) }
+      end
+      context 'for book' do
+        let(:opts) { book }
+        it { is_expected.to eq(0.0) }
+      end
+      context 'for food' do
+        let(:opts) { food }
+        it { is_expected.to eq(0.0) }
+      end
+      context 'for medical' do
+        let(:opts) { medical }
+        it { is_expected.to eq(0.0) }
+      end
+    end
   end
 end
