@@ -74,5 +74,4 @@ RSpec.describe PrintSpeak::Receipt do
       it { is_expected.to eq(29.279) }
     end
   end
-
 end
