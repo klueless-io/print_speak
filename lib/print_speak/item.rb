@@ -3,11 +3,11 @@
 module PrintSpeak
   # Represents a purchase item on a receipt
   class Item
-    attr_accessor :quantity, :product, :price, :category
+    attr_accessor :quantity, :product, :price, :category, :imported
 
     def initialize(**opts)
       # Simulate strong_params
-      opts = opts.slice(:quantity, :product, :price, :category)
+      opts = opts.slice(:quantity, :product, :price, :category, :imported)
 
       # Set attributes
       opts.each { |k, v| instance_variable_set("@#{k}", v) }
