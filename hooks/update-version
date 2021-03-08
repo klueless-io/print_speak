@@ -30,4 +30,4 @@ end
 output.push('')
 
 printf "%-25<label>s : %<version>s\n", label: 'GEM VERSION', version: version
-File.open('lib/print/speak/version.rb', 'w+') { |f| f.write(output.join("\n")) }
+File.open('lib/print_speak/version.rb', 'w+') { |f| f.write(output.join("\n")) }
