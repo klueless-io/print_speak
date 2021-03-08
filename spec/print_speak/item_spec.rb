@@ -3,10 +3,18 @@
 RSpec.describe PrintSpeak::Item do
   let(:instance) { described_class.new(opts) }
   let(:opts) { {} }
+
+  # Local Products
   let(:product) { { quantity: 1, product: 'general-product', price: 100.0 } }
   let(:book) { { quantity: 1, product: 'some-book', price: 10.0, category: :book } }
   let(:food) { { quantity: 1, product: 'some-food', price: 20.0, category: :food } }
   let(:medical) { { quantity: 1, product: 'some-medical-supply', price: 30.0, category: :medical } }
+
+  # Imported Products
+  let(:imported_product) { product.merge(imported: true) }
+  let(:imported_book) { book.merge(imported: true) }
+  let(:imported_food) { food.merge(imported: true) }
+  let(:imported_medical) { medical.merge(imported: true) }
 
   describe 'initialize' do
     subject { instance }
@@ -72,6 +80,47 @@ RSpec.describe PrintSpeak::Item do
       context 'for medical' do
         let(:opts) { medical }
         it { is_expected.to eq(0.0) }
+      end
+    end
+
+    describe '.import_duty' do
+      subject { instance.import_duty }
+
+      context 'on local goods' do
+        context 'for product' do
+          let(:opts) { product }
+          it { is_expected.to eq(0.0) }
+        end
+        context 'for book' do
+          let(:opts) { book }
+          it { is_expected.to eq(0.0) }
+        end
+        context 'for food' do
+          let(:opts) { food }
+          it { is_expected.to eq(0.0) }
+        end
+        context 'for medical' do
+          let(:opts) { medical }
+          it { is_expected.to eq(0.0) }
+        end
+      end
+      context 'on imported goods' do
+        context 'for product' do
+          let(:opts) { product }
+          it { is_expected.to eq(0.0) }
+        end
+        context 'for book' do
+          let(:opts) { book }
+          it { is_expected.to eq(0.0) }
+        end
+        context 'for food' do
+          let(:opts) { food }
+          it { is_expected.to eq(0.0) }
+        end
+        context 'for medical' do
+          let(:opts) { medical }
+          it { is_expected.to eq(0.0) }
+        end
       end
     end
   end
