@@ -8,16 +8,14 @@ As a Small Business Merchant, I want to calculate applicable tax and duties, so 
 
 ### Stories next on list
 
-As a Developer, I can DO_SOMETHING, so that I QUALITY_OF_LIFE
+As a Small Business Merchant, I want to calculate applicable tax and duties, so I am compliant with government regulations
 
-- Subtask
+- Read a data source, known as a shopping basket
+- Convert data into a receipt with items
+- Run tax and total calculations for the receipt
+- Print out the receipt
 
 ### Tasks next on list
-
-Setup RubyGems and RubyDoc
-
-- Build and deploy gem to [rubygems.org](https://rubygems.org/gems/print_speak)
-- Attach documentation to [rubydoc.info](https://rubydoc.info/github/to-do-/print_speak/master)
 
 Setup GitHub Action (test and lint)
 
@@ -27,6 +25,13 @@ Setup GitHub Action (test and lint)
 ## Stories and tasks
 
 ### Tasks - completed
+
+Domain model: Item
+
+- Add item model
+- Support strong parameters
+- Build calculations
+-
 
 Setup project management, requirement and SCRUM documents
 

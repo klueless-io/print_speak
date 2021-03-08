@@ -22,6 +22,10 @@ module PrintSpeak
       calculate_import_duty
     end
 
+    def tax
+      @tax ||= sales_tax + import_duty
+    end
+
     private
 
     # rubocop:disable Metrics/AbcSize
