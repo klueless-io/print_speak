@@ -17,6 +17,11 @@ module PrintSpeak
     def initialize(items)
       @items = items
     end
+
+    def total_price
+      @total_price ||= items.sum(&:price)
+    end
+
     # 1, book, 12.49
     # 1, music CD, 16.49
     # 1, chocolate bar, 0.85
