@@ -80,24 +80,24 @@ RSpec.describe PrintSpeak::Item do
       end
     end
 
-    describe '.tax' do
+    describe '.tax / .price_with_tax' do
       subject { instance }
 
       context 'on local product (add 10% tax)' do
         let(:opts) { product }
-        it { is_expected.to have_attributes(price: 100, tax: 10.0) }
+        it { is_expected.to have_attributes(price: 100, tax: 10.0, price_with_tax: 110.0) }
       end
       context 'on local tax exempt product (no tax)' do
         let(:opts) { book }
-        it { is_expected.to have_attributes(price: 10, tax: 0.0) }
+        it { is_expected.to have_attributes(price: 10, tax: 0.0, price_with_tax: 10.0) }
       end
       context 'on imported product (add 10% tax, add 5% duty)' do
         let(:opts) { imported_product }
-        it { is_expected.to have_attributes(price: 100, tax: 15.0) }
+        it { is_expected.to have_attributes(price: 100, tax: 15.0, price_with_tax: 115.0) }
       end
       context 'on imported tax exempt product (add 5% duty)' do
         let(:opts) { imported_book }
-        it { is_expected.to have_attributes(price: 10, tax: 0.5) }
+        it { is_expected.to have_attributes(price: 10, tax: 0.5, price_with_tax: 10.50) }
       end
     end
 
