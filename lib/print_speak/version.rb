@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
-module PrintSpeak
-  VERSION = "0.1.0"
+module Print
+  module Speak
+    VERSION = '0.0.2'
+  end
 end
