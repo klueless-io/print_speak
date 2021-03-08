@@ -25,6 +25,7 @@ RSpec.describe PrintSpeak::CsvReader do
     it do
       is_expected
         .to  have_attributes(count: 3)
+        .and eq(%w[Quantity Product Price])
     end
   end
 
@@ -33,6 +34,9 @@ RSpec.describe PrintSpeak::CsvReader do
     it do
       is_expected
         .to  have_attributes(count: 3)
+        .and include(include(1, 'book', 12.49),
+                     include(1, 'music cd', 14.99),
+                     include(1, 'chocolate bar', 0.85))
     end
   end
 end
