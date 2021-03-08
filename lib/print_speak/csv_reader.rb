@@ -13,9 +13,11 @@ module PrintSpeak
 
       csv = CSV.read(file, converters: :numeric)
 
-      @headings = csv[0]
+      # remove padding on each heading
+      @headings = csv[0].map(&:strip)
 
-      @rows = csv[1..-1].reject(&:empty?)
+      # remove + empty rows and then remove padding on each cell of each row
+      @rows = csv[1..-1].reject(&:empty?).map { |row| row.map { |column| column.is_a?(String) ? column.strip : column } }
     end
   end
 end
