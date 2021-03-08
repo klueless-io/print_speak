@@ -79,34 +79,57 @@ RSpec.describe PrintSpeak::Item do
         end
       end
     end
+  end
 
-    describe '.tax / .price_with_tax' do
-      subject { instance }
+  describe '.tax / .price_with_tax' do
+    subject { instance }
 
-      context 'on local product (add 10% tax)' do
-        let(:opts) { product }
-        it { is_expected.to have_attributes(price: 100, tax: 10.0, price_with_tax: 110.0) }
-      end
-      context 'on local tax exempt product (no tax)' do
-        let(:opts) { book }
-        it { is_expected.to have_attributes(price: 10, tax: 0.0, price_with_tax: 10.0) }
-      end
-      context 'on imported product (add 10% tax, add 5% duty)' do
-        let(:opts) { imported_product }
-        it { is_expected.to have_attributes(price: 100, tax: 15.0, price_with_tax: 115.0) }
-      end
-      context 'on imported tax exempt product (add 5% duty)' do
-        let(:opts) { imported_book }
-        it { is_expected.to have_attributes(price: 10, tax: 0.5, price_with_tax: 10.50) }
-      end
+    context 'on local product (add 10% tax)' do
+      let(:opts) { product }
+      it { is_expected.to have_attributes(price: 100, tax: 10.0, price_with_tax: 110.0) }
     end
+    context 'on local tax exempt product (no tax)' do
+      let(:opts) { book }
+      it { is_expected.to have_attributes(price: 10, tax: 0.0, price_with_tax: 10.0) }
+    end
+    context 'on imported product (add 10% tax, add 5% duty)' do
+      let(:opts) { imported_product }
+      it { is_expected.to have_attributes(price: 100, tax: 15.0, price_with_tax: 115.0) }
+    end
+    context 'on imported tax exempt product (add 5% duty)' do
+      let(:opts) { imported_book }
+      it { is_expected.to have_attributes(price: 10, tax: 0.5, price_with_tax: 10.50) }
+    end
+  end
 
-    describe '.sales_tax' do
-      subject { instance.sales_tax }
+  describe '.sales_tax' do
+    subject { instance.sales_tax }
 
-      context 'for general product' do
+    context 'for general product' do
+      let(:opts) { product }
+      it { is_expected.to eq(10.0) }
+    end
+    context 'for book' do
+      let(:opts) { book }
+      it { is_expected.to eq(0.0) }
+    end
+    context 'for food' do
+      let(:opts) { food }
+      it { is_expected.to eq(0.0) }
+    end
+    context 'for medical' do
+      let(:opts) { medical }
+      it { is_expected.to eq(0.0) }
+    end
+  end
+
+  describe '.import_duty' do
+    subject { instance.import_duty }
+
+    context 'on local goods' do
+      context 'for product' do
         let(:opts) { product }
-        it { is_expected.to eq(10.0) }
+        it { is_expected.to eq(0.0) }
       end
       context 'for book' do
         let(:opts) { book }
@@ -121,45 +144,22 @@ RSpec.describe PrintSpeak::Item do
         it { is_expected.to eq(0.0) }
       end
     end
-
-    describe '.import_duty' do
-      subject { instance.import_duty }
-
-      context 'on local goods' do
-        context 'for product' do
-          let(:opts) { product }
-          it { is_expected.to eq(0.0) }
-        end
-        context 'for book' do
-          let(:opts) { book }
-          it { is_expected.to eq(0.0) }
-        end
-        context 'for food' do
-          let(:opts) { food }
-          it { is_expected.to eq(0.0) }
-        end
-        context 'for medical' do
-          let(:opts) { medical }
-          it { is_expected.to eq(0.0) }
-        end
+    context 'on imported goods' do
+      context 'for product' do
+        let(:opts) { product }
+        it { is_expected.to eq(0.0) }
       end
-      context 'on imported goods' do
-        context 'for product' do
-          let(:opts) { product }
-          it { is_expected.to eq(0.0) }
-        end
-        context 'for book' do
-          let(:opts) { book }
-          it { is_expected.to eq(0.0) }
-        end
-        context 'for food' do
-          let(:opts) { food }
-          it { is_expected.to eq(0.0) }
-        end
-        context 'for medical' do
-          let(:opts) { medical }
-          it { is_expected.to eq(0.0) }
-        end
+      context 'for book' do
+        let(:opts) { book }
+        it { is_expected.to eq(0.0) }
+      end
+      context 'for food' do
+        let(:opts) { food }
+        it { is_expected.to eq(0.0) }
+      end
+      context 'for medical' do
+        let(:opts) { medical }
+        it { is_expected.to eq(0.0) }
       end
     end
   end
