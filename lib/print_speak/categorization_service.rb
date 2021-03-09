@@ -21,7 +21,7 @@ module PrintSpeak
     end
 
     def self.infer_imported(opts)
-      opts[:imported] = opts[:product] =~ /imported/i
+      opts[:imported] = /imported/i.match?(opts[:product])
     end
   end
 end
