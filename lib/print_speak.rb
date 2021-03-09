@@ -6,6 +6,7 @@ require_relative 'print_speak/receipt'
 require_relative 'print_speak/rounding'
 require_relative 'print_speak/csv_reader'
 require_relative 'print_speak/csv_item_mapper'
+require_relative 'print_speak/shopping_cart_report'
 
 module PrintSpeak
   class Error < StandardError; end
