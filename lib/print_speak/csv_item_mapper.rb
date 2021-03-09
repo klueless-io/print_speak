@@ -19,6 +19,8 @@ module PrintSpeak
                .zip(row)
                .to_h
 
+        PrintSpeak::CategorizationService.infer_category(opts)
+        PrintSpeak::CategorizationService.infer_imported(opts)
         PrintSpeak::Item.new(opts)
       end
     end
