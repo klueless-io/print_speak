@@ -12,12 +12,14 @@ module PrintSpeak
     #
     def self.map(csv_reader)
       csv_reader.rows.map do |row|
-        csv_reader
-          .headings
-          .map(&:downcase)
-          .map(&:to_sym)
-          .zip(row)
-          .to_h
+        opts = csv_reader
+               .headings
+               .map(&:downcase)
+               .map(&:to_sym)
+               .zip(row)
+               .to_h
+
+        PrintSpeak::Item.new(opts)
       end
     end
   end
