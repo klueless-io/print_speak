@@ -36,6 +36,7 @@ RSpec.describe PrintSpeak::CsvItemMapper do
           .and include(have_attributes(quantity: 1, product: 'imported box of chocolates', price: 10.00, category: :food, imported: true),
                        have_attributes(quantity: 1, product: 'imported bottle of perfume', price: 47.50, category: :general, imported: true))
       end
+      # it { subject.each(&:debug) }
     end
 
     context 'local and imported products' do
