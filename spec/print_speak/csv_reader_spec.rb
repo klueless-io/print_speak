@@ -39,4 +39,24 @@ RSpec.describe PrintSpeak::CsvReader do
                      include(1, 'chocolate bar', 0.85))
     end
   end
+
+  describe 'check main usage files' do
+    subject { instance }
+    context 'when using file2' do
+      let(:file) { input2 }
+      it do
+        is_expected
+          .to  have_attributes(headings: have_attributes(count: 3),
+                               rows: have_attributes(count: 2))
+      end
+    end
+    context 'when using file3' do
+      let(:file) { input3 }
+      it do
+        is_expected
+          .to  have_attributes(headings: have_attributes(count: 3),
+                               rows: have_attributes(count: 4))
+      end
+    end
+  end
 end
