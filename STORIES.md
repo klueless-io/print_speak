@@ -19,6 +19,11 @@ As a Small Business Merchant, I want to calculate applicable tax and duties, so 
 
 ### Tasks - completed
 
+Categorization Service
+
+- Infer a product category
+- Infer if product is imported
+
 Create shopping cart report
 
 - Take raw information from csv data source
