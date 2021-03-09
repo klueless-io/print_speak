@@ -1,32 +1,64 @@
 # Expected outputs
 
+I believe the output samples are corrupted
+
+In output 1
+ - the total is Incorrect
+ - the items are not rounded to 5 cents, 
+   while in output 2 below they are rounded
+   and in output 3 some items are rounded
+
+It's unclear if the rounding is meant to be on each item or 
+certain totals or just the sales tax total and so I have 
+only applied the rounding on the 'Sales Taxes Total'
+
 ----------------------------------------------------------------------
-Output 1
+Output 1 (corrupted)
 ----------------------------------------------------------------------
 1, book, 12.49
 1, music CD, 16.49
 1, chocolate bar, 0.85
 
 Sales Taxes: 1.50
-Total: 29.83
+Total: 29.83                 <-- Incorrect: This number not rounded
+
+----------------------------------------------------------------------
+Output 1 (fixed) - I altered the total
+----------------------------------------------------------------------
+1, book, 12.49
+1, music CD, 16.49
+1, chocolate bar, 0.85
+
+Sales Taxes: 1.50
+Total: 29.85
 
 ----------------------------------------------------------------------
 Output 2 
 ----------------------------------------------------------------------
-1, imported box of chocolates, 10.50 
-1, imported bottle of perfume, 54.65 
+1, imported box of chocolates, 10.50
+1, imported bottle of perfume, 54.62
 
-Sales Taxes: 7.65 
+Sales Taxes: 7.65
 Total: 65.15
 
 ----------------------------------------------------------------------
-Output 3 
+Output 3 (corrupted)
 ----------------------------------------------------------------------
-1, imported bottle of perfume, 32.19 
-1, bottle of perfume, 20.89 
-1, packet of headache pills, 9.75 
-1, imported box of chocolates, 11.85 
+1, imported bottle of perfume, 32.19
+1, bottle of perfume, 20.89
+1, packet of headache pills, 9.75
+1, imported box of chocolates, 11.85
 
-Sales Taxes: 6.70 
+Sales Taxes: 6.70
 Total: 74.68
 
+----------------------------------------------------------------------
+Output 3 (fixed)
+----------------------------------------------------------------------
+1, imported bottle of perfume, 32.19
+1, bottle of perfume, 20.89
+1, packet of headache pills, 9.75
+1, box of imported chocolates, 11.81
+
+Sales Taxes: 6.65
+Total: 74.65
