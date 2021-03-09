@@ -19,6 +19,12 @@ As a Small Business Merchant, I want to calculate applicable tax and duties, so 
 
 ### Tasks - completed
 
+Create shopping cart report
+
+- Take raw information from csv data source
+- Convert information to receipt + items
+- Render a report to the console
+
 Create csv to item mapper
 
 - Map item data from csv file to type safe item class
