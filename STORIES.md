@@ -19,6 +19,15 @@ As a Small Business Merchant, I want to calculate applicable tax and duties, so 
 
 ### Tasks - completed
 
+Create csv to item mapper
+
+- Map item data from csv file to type safe item class
+
+Create csv reader
+
+- Read headings and rows
+- Clean up issues with spaces and empty lines
+
 Create a rounding module
 
 - Round to nearest 5 cents
