@@ -32,7 +32,33 @@ module PrintSpeak
       @price_with_tax ||= price + sales_tax + import_duty
     end
 
+    # rubocop:disable Metrics/AbcSize
+    def debug
+      # "#{quantity}, #{product}, #{price_with_tax.round(2)}, #{sales_tax.round(2)}, #{import_duty.round(2)}, #{category}, #{imported}"}
+      l
+      kv('quantity', quantity)
+      kv('product', product)
+      kv('price', price)
+      kv('category', category)
+      kv('imported', imported)
+      l
+      kv('sales_tax', sales_tax)
+      kv('import_duty', import_duty)
+      l
+      kv('tax', tax)
+      kv('price_with_tax', price_with_tax)
+    end
+    # rubocop:enable Metrics/AbcSize
+
     private
+
+    def kv(key, value)
+      puts "#{key.ljust(15)} : #{value}"
+    end
+
+    def l
+      puts '-' * 70
+    end
 
     # rubocop:disable Metrics/AbcSize
     def guards
